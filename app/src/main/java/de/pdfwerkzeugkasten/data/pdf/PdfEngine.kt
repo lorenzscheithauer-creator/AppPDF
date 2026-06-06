@@ -15,7 +15,6 @@ import com.tom_roush.pdfbox.pdmodel.common.PDRectangle
 import com.tom_roush.pdfbox.pdmodel.encryption.AccessPermission
 import com.tom_roush.pdfbox.pdmodel.encryption.StandardProtectionPolicy
 import com.tom_roush.pdfbox.pdmodel.graphics.image.JPEGFactory
-import com.tom_roush.pdfbox.util.PDFBoxResourceLoader
 import java.io.File
 import java.io.FileOutputStream
 import kotlinx.coroutines.Dispatchers
@@ -34,7 +33,6 @@ interface PdfEngine {
 }
 
 class PdfBoxEngine(private val context: Context, private val names: FileNameGenerator = FileNameGenerator()) : PdfEngine {
-    init { PDFBoxResourceLoader.init(context) }
     override suspend fun pageCount(uri: Uri, password: String?): Int = withContext(Dispatchers.IO) { openDocument(uri, password).use { it.numberOfPages } }
 
     override suspend fun compress(uri: Uri, originalName: String, level: CompressionLevel) = withContext(Dispatchers.IO) {
