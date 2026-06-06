@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">PDF Werkzeugkasten</string>
+    <string name="app_name_de">PDF Werkzeugkasten</string>
+    <string name="home_title">PDF Werkzeugkasten</string>
+    <string name="home_trust">Dateien bleiben lokal auf deinem Gerät.</string>
+    <string name="home_search_hint">PDF-Tool suchen</string>
+    <string name="home_top_actions">Hauptaktionen</string>
+    <string name="home_all_tools">Alle Tools</string>
+    <string name="home_empty_title">Kein Tool gefunden</string>
+    <string name="home_empty_body">Versuche „zusammenführen“, „Bild“ oder „Passwort“.</string>
+    <string name="nav_home">Home</string><string name="nav_history">Verlauf</string><string name="nav_pro">Pro</string><string name="nav_settings">Einstellungen</string>
+    <string name="onboarding_title_1">Deine PDF-Werkzeuge an einem Ort</string><string name="onboarding_body_1">Komprimiere, kombiniere und konvertiere PDFs direkt auf deinem Gerät.</string><string name="onboarding_title_2">Privat &amp; lokal</string><string name="onboarding_body_2">Deine Dateien werden lokal verarbeitet und nicht auf Server hochgeladen.</string><string name="onboarding_title_3">Schnell teilen</string><string name="onboarding_body_3">Speichere fertige PDFs oder teile sie direkt per Mail, Messenger und Cloud.</string>
+    <string name="action_continue">Weiter</string><string name="action_start">Loslegen</string>
+    <string name="tool_compress_title">PDF komprimieren</string><string name="tool_compress_desc">Dateigröße lokal reduzieren</string><string name="tool_compress_keywords">komprimieren größe qualität kleiner reduzieren</string>
+    <string name="tool_merge_title">PDFs zusammenführen</string><string name="tool_merge_desc">Mehrere PDFs kombinieren</string><string name="tool_merge_keywords">zusammenführen kombinieren reihenfolge dateien verbinden</string>
+    <string name="tool_split_title">PDF teilen</string><string name="tool_split_desc">Seiten und Bereiche extrahieren</string><string name="tool_split_keywords">teilen extrahieren bereich seiten trennen</string>
+    <string name="tool_images_title">Bilder zu PDF</string><string name="tool_images_desc">Fotos in ein PDF umwandeln</string><string name="tool_images_keywords">bilder fotos jpg png konvertieren</string>
+    <string name="tool_pdf_images_title">PDF zu Bildern</string><string name="tool_pdf_images_desc">Seiten als Bilder exportieren</string><string name="tool_pdf_images_keywords">exportieren bild jpg png rendern</string>
+    <string name="tool_rotate_title">Seiten drehen</string><string name="tool_rotate_desc">Alle Seiten um 90° drehen</string><string name="tool_rotate_keywords">drehen seite ausrichtung rotieren</string>
+    <string name="tool_protect_title">Passwort schützen</string><string name="tool_protect_desc">PDF verschlüsseln</string><string name="tool_protect_keywords">passwort schützen verschlüsseln sicher sperren</string>
+    <string name="tool_unlock_title">Passwort entfernen</string><string name="tool_unlock_desc">Eigene PDF entsperren</string><string name="tool_unlock_keywords">entsperren passwort entfernen entschlüsseln</string>
+    <string name="tool_preview_title">PDF-Vorschau</string><string name="tool_preview_desc">Dokument schnell ansehen</string><string name="tool_preview_keywords">vorschau anzeigen lesen zoom</string>
+    <string name="workflow_title">Aktuelle Aufgabe</string><string name="workflow_select_pdf">Eine oder mehrere PDF-Dateien auswählen</string><string name="workflow_select_images">Bilder aus deiner Galerie auswählen</string><string name="workflow_selected_files">Ausgewählte Dateien</string><string name="workflow_no_files">Noch keine Dateien ausgewählt.</string><string name="workflow_no_files_hint">Wähle oben ein Tool, um den Android-Dateidialog zu öffnen.</string><string name="workflow_process">PDF verarbeiten</string><string name="workflow_processing">Verarbeitung läuft…</string><string name="workflow_retry">Erneut versuchen</string><string name="workflow_new">Neuer Vorgang</string><string name="workflow_page_range">Seiten, z. B. 1-3, 5</string><string name="workflow_password">Passwort</string>
+    <string name="compression_light">Leicht</string><string name="compression_medium">Mittel</string><string name="compression_strong">Stark</string>
+    <string name="result_title">Fertig</string><string name="result_subtitle">Deine Datei ist bereit.</string><string name="result_before_after">Vorher: %1$s · Nachher: %2$s · Ersparnis: %3$d%%</string><string name="action_save">Speichern</string><string name="action_share">Teilen</string><string name="action_open">Öffnen</string>
+    <string name="ad_debug_title">Testanzeige</string><string name="ad_debug_body">Free-Nutzer sehen nach erfolgreichem Zusammenführen Werbung. Pro-Nutzer sehen nie Werbung.</string>
+    <string name="history_title">Verlauf</string><string name="history_privacy">Der Verlauf speichert nur Metadaten, keine Dokumentinhalte.</string><string name="history_empty">Noch keine fertigen Vorgänge.</string><string name="action_clear">Löschen</string>
+    <string name="pro_title">PDF Werkzeugkasten Pro</string><string name="pro_price">Einmalig 1,19 €</string><string name="pro_no_ads">Keine Werbung</string><string name="pro_higher_limits">Höhere Limits</string><string name="pro_all_premium">Alle Premium-Funktionen</string><string name="pro_unlock">Lifetime Pro freischalten</string><string name="pro_restore">Käufe wiederherstellen</string><string name="pro_product_missing">Produktdetails konnten nicht geladen werden. Bitte später erneut versuchen.</string>
+    <string name="settings_title">Einstellungen</string><string name="settings_language">Sprache</string><string name="settings_language_de">Deutsch</string><string name="settings_language_en">Englisch</string><string name="settings_design">Design</string><string name="settings_design_system">System</string><string name="settings_design_light">Hell</string><string name="settings_design_dark">Dunkel</string><string name="settings_privacy">Datenschutz</string><string name="settings_privacy_text">Dokumente bleiben auf deinem Gerät. Wir laden keine PDFs auf unsere Server hoch.</string><string name="settings_ads_consent">Werbung &amp; Zustimmung</string><string name="settings_pro_restore">Pro / Käufe wiederherstellen</string><string name="settings_app_info">App-Info</string><string name="settings_version">Version 1.0.0</string>
+    <string name="error_no_file">Bitte zuerst eine Datei auswählen.</string><string name="error_file_too_large">Diese Datei ist zu groß für die kostenlose Version.</string><string name="error_merge_limit">Die kostenlose Version kann bis zu 5 PDFs zusammenführen.</string><string name="error_image_limit">Die kostenlose Version kann bis zu 10 Bilder umwandeln.</string><string name="error_unreadable_pdf">Diese PDF ist beschädigt oder kann nicht gelesen werden.</string>
+    <string name="billing_ready">Bereit</string>
+    <string name="billing_offline">Kaufprüfung offline – letzter Pro-Status bleibt erhalten.</string>
+    <string name="billing_product_missing">Produktdetails konnten nicht geladen werden.</string>
+    <string name="billing_start_failed">Kauf konnte nicht gestartet werden.</string>
+    <string name="billing_check_failed">Kauf konnte nicht geprüft werden.</string>
+    <string name="billing_cancelled">Kauf abgebrochen.</string>
+    <string name="billing_pending">Kauf ist ausstehend.</string>
+    <string name="billing_success">Kauf erfolgreich. Pro ist aktiv.</string>
+    <string name="billing_owned">Pro ist aktiv.</string>
+    <string name="billing_none">Kein Pro-Kauf gefunden.</string>
+</resources>
