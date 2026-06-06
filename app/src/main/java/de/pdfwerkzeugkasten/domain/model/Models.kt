@@ -7,7 +7,7 @@ enum class CompressionLevel(val label: String, val imageQuality: Int) { LIGHT("L
 enum class UserPlan { FREE, PRO }
 enum class JobStatus { QUEUED, RUNNING, COMPLETED, FAILED, CANCELLED }
 
-data class PdfTool(val id: ToolType, val title: String, val description: String, val icon: String, val category: String, val isProFeature: Boolean = false)
+data class PdfTool(val id: ToolType, val title: String, val description: String, val icon: String, val category: String, val isComingSoon: Boolean = false)
 data class PdfJob(val id: String, val type: ToolType, val inputUris: List<Uri>, val outputUri: Uri? = null, val status: JobStatus = JobStatus.QUEUED, val progress: Int = 0, val createdAt: Long = System.currentTimeMillis(), val completedAt: Long? = null, val errorMessage: String? = null)
 data class HistoryItem(val id: Long = 0, val toolType: ToolType, val displayName: String, val createdAt: Long, val outputSizeBytes: Long, val inputSizeBytes: Long, val outputUriString: String? = null)
 data class PdfOperationResult(val fileName: String, val uri: Uri, val inputSizeBytes: Long, val outputSizeBytes: Long, val mimeType: String = "application/pdf") { val savingsPercent: Int get() = if (inputSizeBytes <= 0) 0 else ((inputSizeBytes - outputSizeBytes).coerceAtLeast(0) * 100 / inputSizeBytes).toInt() }

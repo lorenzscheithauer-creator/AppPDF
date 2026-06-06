@@ -37,8 +37,8 @@ class PdfBoxEngine(private val context: Context, private val names: FileNameGene
 
     override suspend fun compress(uri: Uri, originalName: String, level: CompressionLevel) = withContext(Dispatchers.IO) {
         val input = cacheInput(uri, "compress_input.pdf"); val output = outputFile(names.compressed(originalName)); val before = input.length()
-        PDDocument.load(input).use { doc -> doc.documentInformation.producer = "PDF Werkzeugkasten"; doc.save(output) }
-        // PDFBox performs structural cleanup. Stronger image recompression is reserved for Pro roadmap to avoid destructive surprises.
+        PDDocument.load(input).use { doc -> doc.documentInformation.producer = "PDF Toolbox"; doc.save(output) }
+        // PDFBox performs structural cleanup without changing the free-for-all product policy.
         result(output, before)
     }
 

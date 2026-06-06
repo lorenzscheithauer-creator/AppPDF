@@ -9,7 +9,6 @@ import de.pdfwerkzeugkasten.domain.model.*
 import de.pdfwerkzeugkasten.domain.usecase.PageRangeParser
 import de.pdfwerkzeugkasten.util.LocaleUtil
 import de.pdfwerkzeugkasten.util.displayName
-import de.pdfwerkzeugkasten.util.sizeBytes
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -42,10 +41,10 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         _state.update { it.copy(processing = true, message = UiMessage.Processing, error = null, result = null, showMergeAd = false) }
         runCatching {
             when (s.currentTool) {
-                ToolType.COMPRESS -> { val u=s.inputUris.first(); val size=app.sizeBytes(u); require(c.limits.canCompress(plan, size)) { UiMessage.FileTooLarge.name }; c.pdfEngine.compress(u, app.displayName(u), s.compression) }
-                ToolType.MERGE -> { require(c.limits.canMerge(plan, s.inputUris.size)) { UiMessage.MergeLimit.name }; c.pdfEngine.merge(s.inputUris) }
+                ToolType.COMPRESS -> { val u=s.inputUris.first(); c.pdfEngine.compress(u, app.displayName(u), s.compression) }
+                ToolType.MERGE -> c.pdfEngine.merge(s.inputUris)
                 ToolType.SPLIT -> { val u=s.inputUris.first(); val pages=c.pdfEngine.pageCount(u); val parsed=parser.parse(s.pageRange, pages).getOrThrow(); c.pdfEngine.split(u, app.displayName(u), parsed, s.pageRange.ifBlank { "all" }) }
-                ToolType.IMAGES_TO_PDF -> { require(c.limits.canConvertImages(plan, s.inputUris.size)) { UiMessage.ImageLimit.name }; c.pdfEngine.imagesToPdf(s.inputUris, ImageToPdfOptions()) }
+                ToolType.IMAGES_TO_PDF -> c.pdfEngine.imagesToPdf(s.inputUris, ImageToPdfOptions())
                 ToolType.ROTATE -> { val u=s.inputUris.first(); c.pdfEngine.rotate(u, app.displayName(u), 90) }
                 ToolType.PROTECT -> { val u=s.inputUris.first(); c.pdfEngine.protect(u, app.displayName(u), s.password, allowPrint = true, allowCopy = false) }
                 ToolType.UNLOCK -> { val u=s.inputUris.first(); c.pdfEngine.unlock(u, app.displayName(u), s.password) }
@@ -89,6 +88,6 @@ data class AppUiState(
     val showMergeAd: Boolean = false
 )
 
-enum class UiMessage { FilesSelected, Processing, Done, NoFile, FileTooLarge, MergeLimit, ImageLimit, ToolRoadmap, UnreadablePdf;
+enum class UiMessage { FilesSelected, Processing, Done, NoFile, ToolRoadmap, UnreadablePdf;
     companion object { fun fromThrowable(t: Throwable): UiMessage = runCatching { valueOf(t.message ?: "") }.getOrDefault(UnreadablePdf) }
 }
