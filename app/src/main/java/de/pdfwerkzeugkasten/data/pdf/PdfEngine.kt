@@ -5,19 +5,17 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.pdf.PdfRenderer
 import android.net.Uri
-import android.os.ParcelFileDescriptor
 import de.pdfwerkzeugkasten.domain.model.*
 import de.pdfwerkzeugkasten.domain.usecase.FileNameGenerator
-import org.apache.pdfbox.multipdf.PDFMergerUtility
-import org.apache.pdfbox.multipdf.Splitter
-import org.apache.pdfbox.pdmodel.PDDocument
-import org.apache.pdfbox.pdmodel.PDPage
-import org.apache.pdfbox.pdmodel.PDPageContentStream
-import org.apache.pdfbox.pdmodel.common.PDRectangle
-import org.apache.pdfbox.pdmodel.encryption.AccessPermission
-import org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy
-import org.apache.pdfbox.pdmodel.graphics.image.JPEGFactory
-import org.apache.pdfbox.util.PDFBoxResourceLoader
+import com.tom_roush.pdfbox.multipdf.PDFMergerUtility
+import com.tom_roush.pdfbox.pdmodel.PDDocument
+import com.tom_roush.pdfbox.pdmodel.PDPage
+import com.tom_roush.pdfbox.pdmodel.PDPageContentStream
+import com.tom_roush.pdfbox.pdmodel.common.PDRectangle
+import com.tom_roush.pdfbox.pdmodel.encryption.AccessPermission
+import com.tom_roush.pdfbox.pdmodel.encryption.StandardProtectionPolicy
+import com.tom_roush.pdfbox.pdmodel.graphics.image.JPEGFactory
+import com.tom_roush.pdfbox.util.PDFBoxResourceLoader
 import java.io.File
 import java.io.FileOutputStream
 import kotlinx.coroutines.Dispatchers
@@ -121,5 +119,6 @@ class PdfBoxEngine(private val context: Context, private val names: FileNameGene
     private fun outputFile(name: String): File { val dir = File(context.cacheDir, "outputs").apply { mkdirs() }; return uniqueFile(dir, name) }
     private fun uniqueFile(dir: File, name: String): File { var file = File(dir, name); var i = 1; while (file.exists()) { file = File(dir, name.removeSuffix(".pdf") + "_$i.pdf"); i++ }; return file }
     private fun result(output: File, inputSize: Long) = PdfOperationResult(output.name, Uri.fromFile(output), inputSize, output.length())
-    private fun pageSize(options: ImageToPdfOptions, bitmap: Bitmap): PDRectangle = when (options.paperFormat) { PaperFormat.A4 -> if (options.orientation == PageOrientation.LANDSCAPE) PDRectangle.A4.rotate() else PDRectangle.A4; PaperFormat.LETTER -> if (options.orientation == PageOrientation.LANDSCAPE) PDRectangle.LETTER.rotate() else PDRectangle.LETTER; PaperFormat.ORIGINAL -> PDRectangle(bitmap.width.toFloat(), bitmap.height.toFloat()) }
+    private fun pageSize(options: ImageToPdfOptions, bitmap: Bitmap): PDRectangle = when (options.paperFormat) { PaperFormat.A4 -> rectangle(PDRectangle.A4, options.orientation); PaperFormat.LETTER -> rectangle(PDRectangle.LETTER, options.orientation); PaperFormat.ORIGINAL -> PDRectangle(bitmap.width.toFloat(), bitmap.height.toFloat()) }
+    private fun rectangle(base: PDRectangle, orientation: PageOrientation): PDRectangle = if (orientation == PageOrientation.LANDSCAPE) PDRectangle(base.height, base.width) else PDRectangle(base.width, base.height)
 }
