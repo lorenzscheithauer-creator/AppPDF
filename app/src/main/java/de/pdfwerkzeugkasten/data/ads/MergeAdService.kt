@@ -32,7 +32,7 @@ class AdMobMergeAdService : MergeAdService {
 
     override fun showAfterSuccessfulMerge(activity: Activity, onFinished: () -> Unit) {
         val ad = interstitial
-        if (ad == null) { preload(activity); return }
+        if (ad == null) { preload(activity); onFinished(); return }
         interstitial = null
         ad.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdDismissedFullScreenContent() { onFinished(); preload(activity) }
