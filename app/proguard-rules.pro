@@ -1,0 +1,5 @@
+-keep class com.android.billingclient.** { *; }
+-keep class com.google.android.gms.ads.** { *; }
+-keep class com.google.android.ump.** { *; }
+-dontwarn org.bouncycastle.**
+-dontwarn org.apache.**
